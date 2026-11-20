@@ -23,12 +23,15 @@ import {
 } from './data/portfolioData';
 import { soundEngine } from './utils/soundEngine';
 
+const HERO_VIDEO = '/assets/aistudio/Slow_Spinning_Portrait_ab8d73b3.mp4';
+
 export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [expandedCapability, setExpandedCapability] = useState<string | null>(null);
   const [hoveredExpIdx, setHoveredExpIdx] = useState<number | null>(null);
   const [selectedClient, setSelectedClient] = useState<ClientProject | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [heroVideoError, setHeroVideoError] = useState(false);
   const [heroImgError, setHeroImgError] = useState(false);
 
   const heroRef = useRef<HTMLElement>(null);
@@ -38,8 +41,8 @@ export default function App() {
   });
   const smoothHeroScroll = useSpring(heroScroll, { stiffness: 120, damping: 24 });
   const heroBgY = useTransform(smoothHeroScroll, [0, 1], ['0%', '18%']);
-  const heroBgScale = useTransform(smoothHeroScroll, [0, 1], [1.04, 1.14]);
-  const heroBgOpacity = useTransform(smoothHeroScroll, [0, 1], [0.52, 0.15]);
+  const heroBgScale = useTransform(smoothHeroScroll, [0, 1], [1.02, 1.12]);
+  const heroBgOpacity = useTransform(smoothHeroScroll, [0, 1], [0.64, 0.15]);
 
   const navigateTo = (id: string) => {
     const el = document.getElementById(id);
@@ -82,28 +85,51 @@ export default function App() {
           ref={heroRef}
           className="relative min-h-screen flex flex-col justify-center border-b border-[#b7ab98]/12 overflow-hidden"
         >
-          {/* Ambient 3D sculpture backdrop with spring-smoothed parallax */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
-            {!heroImgError && (
-              <motion.img
-                src={HERO_IMAGE}
-                alt="Sculptural 3D obsidian digital form"
-                referrerPolicy="no-referrer"
-                onError={() => setHeroImgError(true)}
+          {/* Ambient spinning portrait video backdrop with spring-smoothed parallax */}
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden bg-[#0d0d0d]">
+            {!heroVideoError ? (
+              <motion.video
+                src={HERO_VIDEO}
+                poster={HERO_IMAGE}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                onError={() => setHeroVideoError(true)}
                 style={{
                   y: heroBgY,
                   scale: heroBgScale,
                   opacity: heroBgOpacity,
                 }}
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 0.52, scale: 1.04 }}
+                initial={{ opacity: 0, scale: 1.08 }}
+                animate={{ opacity: 0.64, scale: 1.02 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full h-full object-cover will-change-transform"
+                className="w-full h-full object-cover object-center will-change-transform"
               />
+            ) : (
+              !heroImgError && (
+                <motion.img
+                  src={HERO_IMAGE}
+                  alt="Sculptural 3D obsidian digital form"
+                  referrerPolicy="no-referrer"
+                  onError={() => setHeroImgError(true)}
+                  style={{
+                    y: heroBgY,
+                    scale: heroBgScale,
+                    opacity: heroBgOpacity,
+                  }}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 0.52, scale: 1.04 }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full h-full object-cover will-change-transform"
+                />
+              )
             )}
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/70 via-[#0d0d0d]/45 to-[#0d0d0d]"
+              className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/65 via-[#0d0d0d]/35 to-[#0d0d0d]"
             />
           </div>
 
@@ -124,10 +150,16 @@ export default function App() {
                       className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4"
                     >
                       <p className="text-xs md:text-sm uppercase tracking-[0.28em] font-medium text-[#b7ab98]/80">
-                        Minh Pham
+                        ARMAN KABIR
                       </p>
                       <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] font-extrabold uppercase tracking-[-0.03em] leading-[0.92] text-[#b7ab98]">
-                        Making <span className="text-[#eb5939]">Good</span> Shit Since 2009
+                        Everything
+                        <br />
+                        Starts
+                        <br />
+                        With
+                        <br />
+                        <span className="text-[#eb5939]">Curiosity</span>
                       </h1>
                     </div>
                   </div>
@@ -138,10 +170,14 @@ export default function App() {
                   <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
                     <div className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4">
                       <p className="text-xs md:text-sm uppercase tracking-[0.28em] font-semibold text-[#0d0d0d]/80">
-                        Minh Pham
+                        ARMAN KABIR
                       </p>
                       <p className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] font-extrabold uppercase tracking-[-0.03em] leading-[0.92] text-[#0d0d0d]">
-                        Hiding Bad Shit Since 2009
+                        Until
+                        <br />
+                        It
+                        <br />
+                        Works.
                       </p>
                     </div>
                   </div>
@@ -163,7 +199,7 @@ export default function App() {
                       About Me
                     </h2>
                     <ScrollText
-                      text="I'm a selectively skilled product designer with strong focus on producing high quality & impactful digital experience."
+                      text="I'm a software engineer passionate about building modern web applications, exploring AI, and turning ideas into products people genuinely enjoy using."
                       className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
                     />
                   </div>
@@ -178,8 +214,8 @@ export default function App() {
                       About Me
                     </p>
                     <p className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#0d0d0d]">
-                      A visual designer - with skills that haven&apos;t been replaced by A.I (yet) -
-                      making good shit only if the paycheck is equally good.
+                      A curious builder—always learning, always experimenting, and always chasing
+                      the next idea worth bringing to life.
                     </p>
                   </div>
                 </div>
