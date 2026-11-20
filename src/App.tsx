@@ -70,14 +70,18 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-[#b7ab98]">
       <CustomCursor />
-      <Navbar onNavigate={navigateTo} />
+      <Navbar
+        onNavigate={navigateTo}
+        soundEnabled={soundEnabled}
+        onToggleSound={handleToggleSound}
+      />
 
-      <main className="pt-16">
+      <main>
         {/* HERO SECTION */}
         <section
           id="hero"
           ref={heroRef}
-          className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-between border-b border-[#b7ab98]/12 overflow-hidden"
+          className="relative min-h-screen pt-16 md:pt-0 flex flex-col justify-between border-b border-[#b7ab98]/12 overflow-hidden"
         >
           {/* Ambient 3D sculpture backdrop with spring-smoothed parallax */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
@@ -116,7 +120,7 @@ export default function App() {
               className="w-full"
               baseContent={
                 <div className="w-full py-16 md:py-24">
-                  <div className="max-w-[1360px] mx-auto px-6 md:px-12 text-center">
+                  <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
                     <div
                       data-mask-text="true"
                       className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4"
@@ -133,7 +137,7 @@ export default function App() {
               }
               revealContent={
                 <div className="w-full h-full flex items-center justify-center py-16 md:py-24">
-                  <div className="max-w-[1360px] mx-auto px-6 md:px-12 text-center">
+                  <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
                     <div className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4">
                       <p className="text-xs md:text-sm uppercase tracking-[0.28em] font-semibold text-[#0d0d0d]/80">
                         Minh Pham
@@ -149,8 +153,8 @@ export default function App() {
           </motion.div>
 
           {/* Hero Interactive Utility Bar */}
-          <div className="relative z-10 border-t border-[#b7ab98]/10 bg-[#0d0d0d]/75 backdrop-blur-sm">
-            <div className="max-w-[1360px] mx-auto px-6 md:px-12 py-4 flex flex-wrap items-center justify-between gap-4">
+          <div className="relative z-10 border-t border-[#b7ab98]/10 bg-[#0d0d0d]/55 backdrop-blur-xs">
+            <div className="max-w-[1120px] mx-auto px-6 md:px-12 py-4 flex flex-wrap items-center justify-between gap-4">
               <p className="text-xs text-[#b7ab98]/60">
                 Hover statements to reveal the unfiltered version
               </p>
@@ -177,7 +181,7 @@ export default function App() {
                   type="button"
                   onClick={handleToggleSound}
                   aria-pressed={soundEnabled}
-                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-medium tracking-wide border border-[#b7ab98]/25 text-[#b7ab98] hover:border-[#eb5939] active:scale-[0.97] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
+                  className="md:hidden inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-medium tracking-wide border border-[#b7ab98]/25 text-[#b7ab98] hover:border-[#eb5939] active:scale-[0.97] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
                 >
                   {soundEnabled ? (
                     <Volume2 className="w-3.5 h-3.5 text-[#eb5939]" />
@@ -198,7 +202,7 @@ export default function App() {
             radius={220}
             baseContent={
               <div className="py-24 md:py-36">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12">
                   <div data-mask-text="true" className="w-fit max-w-5xl space-y-8">
                     <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
                       About Me
@@ -213,7 +217,7 @@ export default function App() {
             }
             revealContent={
               <div className="w-full h-full flex items-center py-24 md:py-36">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12 w-full">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full">
                   <div className="w-fit max-w-5xl space-y-8">
                     <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
                       About Me
@@ -231,7 +235,7 @@ export default function App() {
 
         {/* WHAT I DO SECTION */}
         <section id="work" className="border-b border-[#b7ab98]/12 pt-20 md:pt-28">
-          <div className="max-w-[1360px] mx-auto px-6 md:px-12 pb-10 flex items-end justify-between gap-6">
+          <div className="max-w-[1120px] mx-auto px-6 md:px-12 pb-10 flex items-end justify-between gap-6">
             <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
               What I Do
             </h2>
@@ -263,7 +267,7 @@ export default function App() {
             className="border-b border-[#b7ab98]/12"
             baseContent={
               <div className="py-24 md:py-32">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12">
                   <div data-mask-text="true" className="w-fit max-w-5xl space-y-8">
                     <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
                       Experience
@@ -278,7 +282,7 @@ export default function App() {
             }
             revealContent={
               <div className="w-full h-full flex items-center py-24 md:py-32">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12 w-full">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full">
                   <div className="w-fit max-w-5xl space-y-8">
                     <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
                       Experience
@@ -294,7 +298,7 @@ export default function App() {
           />
 
           {/* History Timeline */}
-          <div className="max-w-[1360px] mx-auto px-6 md:px-12 py-16 md:py-24">
+          <div className="max-w-[1120px] mx-auto px-6 md:px-12 py-16 md:py-24">
             <h3 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60 mb-10">
               History
             </h3>
@@ -353,7 +357,7 @@ export default function App() {
             className="border-b border-[#b7ab98]/12"
             baseContent={
               <div className="py-24 md:py-32">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12">
                   <div data-mask-text="true" className="w-fit max-w-5xl space-y-8">
                     <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
                       Clients
@@ -368,7 +372,7 @@ export default function App() {
             }
             revealContent={
               <div className="w-full h-full flex items-center py-24 md:py-32">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12 w-full">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full">
                   <div className="w-fit max-w-5xl space-y-8">
                     <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
                       Clients
@@ -398,7 +402,7 @@ export default function App() {
                   aria-hidden="true"
                   className="absolute inset-0 bg-[#eb5939] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center will-change-transform"
                 />
-                <div className="relative z-10 max-w-[1360px] mx-auto px-6 md:px-12 py-8 md:py-10 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+                <div className="relative z-10 max-w-[1120px] mx-auto px-6 md:px-12 py-8 md:py-10 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center">
                   <div className="lg:col-span-4 flex items-center justify-between lg:justify-start gap-4">
                     <span className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-[#b7ab98] group-hover:text-[#0d0d0d] group-hover:translate-x-2 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]">
                       {client.name}
@@ -432,7 +436,7 @@ export default function App() {
             radius={220}
             baseContent={
               <div className="py-28 md:py-44">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12 text-center">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
                   <div
                     data-mask-text="true"
                     className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4"
@@ -450,7 +454,7 @@ export default function App() {
             }
             revealContent={
               <div className="w-full h-full flex items-center justify-center py-28 md:py-44">
-                <div className="max-w-[1360px] mx-auto px-6 md:px-12 text-center">
+                <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
                   <div className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4">
                     <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
                       My Motto
@@ -469,7 +473,7 @@ export default function App() {
 
       {/* CONNECT / FOOTER SECTION */}
       <footer id="contact" className="bg-[#0d0d0d] py-20 md:py-28">
-        <div className="max-w-[1360px] mx-auto px-6 md:px-12 space-y-16">
+        <div className="max-w-[1120px] mx-auto px-6 md:px-12 space-y-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5 space-y-4">
               <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">

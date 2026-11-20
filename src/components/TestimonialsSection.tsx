@@ -32,7 +32,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ honest
 
   const renderQuoteBlock = (isMaskLayer: boolean) => (
     <div className="py-24 md:py-32">
-      <div className="max-w-[1360px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1120px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8">
             <h2
@@ -116,7 +116,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ honest
 
       {/* Interactive Colleague Selector floating cleanly above the full-width mask layer */}
       <div className="lg:absolute lg:inset-0 lg:pointer-events-none z-30 flex items-center">
-        <div className="max-w-[1360px] mx-auto px-6 md:px-12 w-full pb-20 lg:pb-0">
+        <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full pb-20 lg:pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 hidden lg:block" />
             <div className="lg:col-span-4 lg:pointer-events-auto flex flex-col justify-center space-y-6">

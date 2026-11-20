@@ -45,7 +45,7 @@ export const CapabilityBand: React.FC<CapabilityBandProps> = ({
           }`}
         />
 
-        <div className="relative z-10 max-w-[1360px] mx-auto px-6 md:px-12 py-6 md:py-9 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-12">
+        <div className="relative z-10 max-w-[1120px] mx-auto px-6 md:px-12 py-6 md:py-9 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-12">
           <div className="flex items-center gap-4">
             <span
               className={`font-display text-4xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -90,7 +90,7 @@ export const CapabilityBand: React.FC<CapabilityBandProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: 0.04 }}
-              className="max-w-[1360px] mx-auto px-6 md:px-12 py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+              className="max-w-[1120px] mx-auto px-6 md:px-12 py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
               <div className="md:col-span-5 aspect-[16/9] bg-[#0d0d0d] border border-[#b7ab98]/10 overflow-hidden">
                 {!imgError ? (
