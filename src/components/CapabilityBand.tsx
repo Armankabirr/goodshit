@@ -8,14 +8,14 @@ interface CapabilityBandProps {
   item: CapabilityItem;
   isExpanded: boolean;
   onToggle: () => void;
-  forceHonest: boolean;
+  forceHonest?: boolean;
 }
 
 export const CapabilityBand: React.FC<CapabilityBandProps> = ({
   item,
   isExpanded,
   onToggle,
-  forceHonest,
+  forceHonest = false,
 }) => {
   const [hovered, setHovered] = useState(false);
   const [imgError, setImgError] = useState(false);

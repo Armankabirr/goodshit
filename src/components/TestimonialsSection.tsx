@@ -6,10 +6,10 @@ import { MaskRevealBlock } from './MaskRevealBlock';
 import { soundEngine } from '../utils/soundEngine';
 
 interface TestimonialsSectionProps {
-  honestMode: boolean;
+  honestMode?: boolean;
 }
 
-export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ honestMode }) => {
+export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ honestMode = false }) => {
   const [activeIdx, setActiveIdx] = useState(0);
   const [failedAvatars, setFailedAvatars] = useState<Record<string, boolean>>({});
 

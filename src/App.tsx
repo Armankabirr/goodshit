@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
-import { ArrowUpRight, Check, Copy, Eye, EyeOff, Volume2, VolumeX } from 'lucide-react';
+import { ArrowUpRight, Check, Copy } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { MaskRevealBlock } from './components/MaskRevealBlock';
 import { ScrollText } from './components/ScrollText';
@@ -24,7 +24,6 @@ import {
 import { soundEngine } from './utils/soundEngine';
 
 export default function App() {
-  const [honestMode, setHonestMode] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [expandedCapability, setExpandedCapability] = useState<string | null>(null);
   const [hoveredExpIdx, setHoveredExpIdx] = useState<number | null>(null);
@@ -81,7 +80,7 @@ export default function App() {
         <section
           id="hero"
           ref={heroRef}
-          className="relative min-h-screen pt-16 md:pt-0 flex flex-col justify-between border-b border-[#b7ab98]/12 overflow-hidden"
+          className="relative min-h-screen flex flex-col justify-center border-b border-[#b7ab98]/12 overflow-hidden"
         >
           {/* Ambient 3D sculpture backdrop with spring-smoothed parallax */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
@@ -115,7 +114,6 @@ export default function App() {
             className="relative z-10 flex-1 flex items-center"
           >
             <MaskRevealBlock
-              forceReveal={honestMode}
               radius={230}
               className="w-full"
               baseContent={
@@ -151,54 +149,11 @@ export default function App() {
               }
             />
           </motion.div>
-
-          {/* Hero Interactive Utility Bar */}
-          <div className="relative z-10 border-t border-[#b7ab98]/10 bg-[#0d0d0d]/55 backdrop-blur-xs">
-            <div className="max-w-[1120px] mx-auto px-6 md:px-12 py-4 flex flex-wrap items-center justify-between gap-4">
-              <p className="text-xs text-[#b7ab98]/60">
-                Hover statements to reveal the unfiltered version
-              </p>
-
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    soundEngine.playTick(480);
-                    setHonestMode((prev) => !prev);
-                  }}
-                  aria-pressed={honestMode}
-                  className={`inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-medium tracking-wide border transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939] ${
-                    honestMode
-                      ? 'bg-[#eb5939] text-[#0d0d0d] border-[#eb5939]'
-                      : 'bg-transparent text-[#b7ab98] border-[#b7ab98]/25 hover:border-[#eb5939]'
-                  }`}
-                >
-                  {honestMode ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-                  <span>{honestMode ? 'Hide Honest Copy' : 'Reveal Honest Copy'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleToggleSound}
-                  aria-pressed={soundEnabled}
-                  className="md:hidden inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-medium tracking-wide border border-[#b7ab98]/25 text-[#b7ab98] hover:border-[#eb5939] active:scale-[0.97] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
-                >
-                  {soundEnabled ? (
-                    <Volume2 className="w-3.5 h-3.5 text-[#eb5939]" />
-                  ) : (
-                    <VolumeX className="w-3.5 h-3.5 text-[#b7ab98]/60" />
-                  )}
-                  <span>{soundEnabled ? 'Sound On' : 'Sound Off'}</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* ABOUT ME SECTION */}
         <section id="about" className="border-b border-[#b7ab98]/12">
           <MaskRevealBlock
-            forceReveal={honestMode}
             radius={220}
             baseContent={
               <div className="py-24 md:py-36">
@@ -249,7 +204,6 @@ export default function App() {
               <CapabilityBand
                 key={cap.id}
                 item={cap}
-                forceHonest={honestMode}
                 isExpanded={expandedCapability === cap.id}
                 onToggle={() =>
                   setExpandedCapability((prev) => (prev === cap.id ? null : cap.id))
@@ -262,7 +216,6 @@ export default function App() {
         {/* EXPERIENCE & HISTORY SECTION */}
         <section id="experience" className="border-b border-[#b7ab98]/12">
           <MaskRevealBlock
-            forceReveal={honestMode}
             radius={220}
             className="border-b border-[#b7ab98]/12"
             baseContent={
@@ -305,7 +258,7 @@ export default function App() {
 
             <div className="divide-y divide-[#b7ab98]/12 border-y border-[#b7ab98]/12">
               {EXPERIENCE.map((item, idx) => {
-                const showHonest = honestMode || hoveredExpIdx === idx;
+                const showHonest = hoveredExpIdx === idx;
                 return (
                   <div
                     key={`${item.year}-${item.role}`}
@@ -352,7 +305,6 @@ export default function App() {
         {/* CLIENTS SECTION */}
         <section id="clients" className="border-b border-[#b7ab98]/12">
           <MaskRevealBlock
-            forceReveal={honestMode}
             radius={220}
             className="border-b border-[#b7ab98]/12"
             baseContent={
@@ -427,12 +379,11 @@ export default function App() {
         </section>
 
         {/* WHAT THEY SAID SECTION */}
-        <TestimonialsSection honestMode={honestMode} />
+        <TestimonialsSection />
 
         {/* MY MOTTO SECTION */}
         <section className="relative border-b border-[#b7ab98]/12 overflow-hidden">
           <MaskRevealBlock
-            forceReveal={honestMode}
             radius={220}
             baseContent={
               <div className="py-28 md:py-44">

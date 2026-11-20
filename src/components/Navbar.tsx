@@ -191,8 +191,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
       </aside>
 
-      {/* Bottom-Right Vertical Sound Toggle (Desktop) */}
-      <div className="fixed bottom-9 right-12 z-40 hidden md:flex items-center">
+      {/* Bottom-Right Vertical Sound Toggle */}
+      <div className="fixed bottom-5 right-5 md:bottom-9 md:right-12 z-40 flex items-center">
         <button
           type="button"
           onClick={onToggleSound}
