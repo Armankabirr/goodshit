@@ -48,7 +48,7 @@ export const CapabilityBand: React.FC<CapabilityBandProps> = ({
         <div className="relative z-10 max-w-[1120px] mx-auto px-6 md:px-12 py-6 md:py-9 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-12">
           <div className="flex items-center gap-4">
             <span
-              className={`font-display text-4xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`font-display text-4xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight leading-[0.95] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 active ? 'text-[#0d0d0d] translate-x-2' : 'text-[#b7ab98] translate-x-0'
               }`}
             >

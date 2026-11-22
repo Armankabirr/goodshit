@@ -44,46 +44,46 @@ export const HERO_IMAGE = '/src/assets/images/hero_sculpture_dark_1795158520374.
 export const CAPABILITIES: CapabilityItem[] = [
   {
     id: '3d',
-    title: '3D',
-    honestSummary: 'I can produce anything that my 16” laptop can render.',
-    deliverables: 'Spatial WebGL · Real-time Product Renders · Sculptural Motion',
-    tools: 'Cinema 4D · Octane · Spline · Three.js',
+    title: 'Full-Stack Development',
+    honestSummary: 'Designing and developing complete web applications that combine intuitive user experiences with scalable backend systems.',
+    deliverables: 'Responsive Web Apps · REST APIs · Authentication · Admin Dashboards',
+    tools: 'React · TypeScript · Node.js · Express · MongoDB · Supabase · Firebase',
     image: '/src/assets/images/hero_sculpture_dark_1795158520374.jpg',
     details:
-      'From tactile industrial surfaces to kinetic sculptural scenes, 3D work bridges physical material craft with interactive browser canvases—kept strictly within GPU thermal limits.',
+      'From responsive user interfaces to secure backend services, I build end-to-end applications that solve real-world problems. My focus is on clean architecture, maintainable code, seamless user experiences, and scalable systems. Every project is an opportunity to turn an idea into a reliable product people enjoy using.',
   },
   {
     id: 'visual',
-    title: 'Visual',
+    title: 'Game Development',
     honestSummary:
-      'I search the internet for visual references and then combine them to create my own work.',
-    deliverables: 'Design Systems · Art Direction · Brand Interfaces',
-    tools: 'Figma · Photoshop · Editorial Typography',
+      'Creating engaging desktop games and interactive experiences.',
+    deliverables: 'Desktop Games · AI Opponents· Multiplayer Systems · Interactive UI ',
+    tools: 'Java · JavaFX · OOP · Socket Programming · Scene Builder',
     image: '/src/assets/images/work_ford_hmi_1795158519236.jpg',
     details:
-      'High-contrast editorial hierarchy, restrained palette discipline, and crisp micro-interactions built around human legibility rather than surface decoration.',
+      'I enjoy exploring game mechanics and interactive software through object-oriented design. My work includes developing gameplay systems, AI-driven opponents, multiplayer features, and polished desktop experiences such as Spectra Arena.',
   },
   {
     id: 'motion',
-    title: 'Motion',
+    title: 'IoT Development',
     honestSummary:
-      'I use fancy motion that makes my design more interesting than it actually is.',
-    deliverables: 'Scroll Choreography · Interaction Prototyping · Micro-transitions',
-    tools: 'After Effects · GSAP · Motion',
+      'Building connected hardware and software solutions that automate everyday tasks through embedded systems, sensors, cloud connectivity, and real-time monitoring.',
+    deliverables: 'Embedded Systems · Smart Automation · IoT Dashboards · Remote Monitoring',
+    tools: 'Arduino · ESP32 · C++ · SIM800L · IR Sensors · Servo Motors · Firebase',
     image: '/src/assets/images/work_ufc_ecosystem_1795158521161.jpg',
     details:
-      'Purposeful easing curves and tactile feedback loops that guide spatial orientation across desktop and automotive viewports.',
+      'I build IoT solutions that bridge the physical and digital worlds through sensors, automation, and web technologies. My experience includes smart healthcare systems like IoT MedConnect, combining embedded devices with cloud-connected applications.',
   },
   {
     id: 'product',
-    title: 'Product',
+    title: 'Research & Networking',
     honestSummary:
-      'I utilize common design best practices, test, and re-iterate until it works (hopefully).',
-    deliverables: 'End-to-End UX · Connected Ecosystems · Design Leadership',
-    tools: 'Systems Thinking · User Flows · Rapid Iteration',
+      'Exploring secure, scalable systems through research and simulation.',
+    deliverables: 'Network Simulation · Security · Performance Analysis',
+    tools: 'SUMO · ns-3 · Python',
     image: '/src/assets/images/work_spatial_product_1795158520948.jpg',
     details:
-      'Scaling multi-platform digital ecosystems from early concept pitches to production systems used by millions of daily drivers, sleepers, and sports fans.',
+      'I enjoy understanding how complex distributed systems work and researching ways to improve their stability, efficiency, and security. My research focuses on vehicular cloud networks and clustering techniques.',
   },
   {
     id: 'tutorial',
