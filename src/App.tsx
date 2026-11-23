@@ -262,7 +262,7 @@ export default function App() {
                       Experience
                     </h2>
                     <ScrollText
-                      text="Over a decade of experience in interactive design and working with some of the most talented people in the business."
+                      text="My journey has been shaped by curiosity, collaboration, and the willingness to take on projects that push me beyond my comfort zone."
                       className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
                     />
                   </div>
@@ -277,8 +277,7 @@ export default function App() {
                       Experience
                     </p>
                     <p className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#0d0d0d]">
-                      Over a decade of surviving endless feedback rounds and making pixels look
-                      slightly better than yesterday.
+                      One day this section will list companies. Today, it tells the story of how I got there.
                     </p>
                   </div>
                 </div>
