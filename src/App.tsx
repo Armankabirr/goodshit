@@ -347,10 +347,10 @@ export default function App() {
                 <div className="max-w-[1120px] mx-auto px-6 md:px-12">
                   <div data-mask-text="true" className="w-fit max-w-5xl space-y-8">
                     <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
-                      Clients
+                      working with teams
                     </h2>
                     <ScrollText
-                      text="I worked with some of the most innovative industry leaders to help build their top-notch products."
+                      text="I've had the opportunity to collaborate with talented teammates, faculty members, and student communities on projects that helped me grow as a team player."
                       className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
                     />
                   </div>
@@ -365,7 +365,7 @@ export default function App() {
                       Clients
                     </p>
                     <p className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#0d0d0d]">
-                      I was only a small part of a large team. They probably have no idea I exist.
+                     No Fortune 500 clients. Just real people, real teamwork, and lessons that shaped the engineer I'm becoming.
                     </p>
                   </div>
                 </div>

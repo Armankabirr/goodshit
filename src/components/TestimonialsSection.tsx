@@ -40,7 +40,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ honest
                 isMaskLayer ? 'text-[#0d0d0d]/70' : 'text-[#b7ab98]/60'
               }`}
             >
-              What They Said
+              Honors & Achievements.
             </h2>
 
             <AnimatePresence mode="wait">
