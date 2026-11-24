@@ -336,6 +336,19 @@ export default function App() {
                 return (
                   <div
                     key={`${item.year}-${item.role}`}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      soundEngine.playTick(340);
+                      setHoveredExpIdx((prev) => (prev === idx ? null : idx));
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        soundEngine.playTick(340);
+                        setHoveredExpIdx((prev) => (prev === idx ? null : idx));
+                      }
+                    }}
                     onPointerEnter={() => {
                       setHoveredExpIdx(idx);
                       soundEngine.playTick(310);
@@ -343,21 +356,28 @@ export default function App() {
                     onPointerLeave={() =>
                       setHoveredExpIdx((prev) => (prev === idx ? null : prev))
                     }
-                    className="py-7 md:py-9 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-center transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#141414]/65 px-3 -mx-3"
+                    className="py-7 md:py-9 px-4 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-center transition-colors duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#151413] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#eb5939]"
                   >
-                    <div className="md:col-span-3 font-display text-2xl md:text-3xl font-bold font-mono-tabular text-[#b7ab98]">
+                    <div
+                      className={`md:col-span-3 font-display text-2xl md:text-3xl font-bold font-mono-tabular transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                        showHonest ? 'text-[#eb5939] md:translate-x-1' : 'text-[#b7ab98]'
+                      }`}
+                    >
                       {item.year}
                     </div>
 
-                    {/* Layered grid keeps height stable across wraps with zero exit-wait flicker */}
-                    <div className="md:col-span-5 font-display text-xl md:text-2xl lg:text-[1.75rem] font-bold tracking-tight leading-snug grid overflow-hidden">
+                    {/* Full-height odometer roll prevents text overlap & descender clipping */}
+                    <div className="md:col-span-5 font-display text-xl md:text-2xl lg:text-[1.7rem] font-bold tracking-tight leading-snug grid py-1.5 -my-1.5 overflow-hidden">
                       <motion.span
                         initial={false}
                         animate={{
                           opacity: showHonest ? 0 : 1,
-                          y: showHonest ? -10 : 0,
+                          y: showHonest ? '-115%' : '0%',
                         }}
-                        transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{
+                          y: { duration: 0.38, ease: [0.16, 1, 0.3, 1] },
+                          opacity: { duration: 0.2, ease: 'easeOut' },
+                        }}
                         aria-hidden={showHonest}
                         className="col-start-1 row-start-1 text-[#b7ab98] will-change-[transform,opacity]"
                       >
@@ -367,9 +387,12 @@ export default function App() {
                         initial={false}
                         animate={{
                           opacity: showHonest ? 1 : 0,
-                          y: showHonest ? 0 : 10,
+                          y: showHonest ? '0%' : '115%',
                         }}
-                        transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{
+                          y: { duration: 0.38, ease: [0.16, 1, 0.3, 1] },
+                          opacity: { duration: 0.24, delay: showHonest ? 0.05 : 0, ease: 'easeOut' },
+                        }}
                         aria-hidden={!showHonest}
                         className="col-start-1 row-start-1 text-[#eb5939] will-change-[transform,opacity]"
                       >
@@ -377,7 +400,11 @@ export default function App() {
                       </motion.span>
                     </div>
 
-                    <div className="md:col-span-4 text-sm text-[#b7ab98]/65 md:text-right">
+                    <div
+                      className={`md:col-span-4 text-sm md:text-right transition-colors duration-300 ${
+                        showHonest ? 'text-[#b7ab98]/90' : 'text-[#b7ab98]/60'
+                      }`}
+                    >
                       <span>{item.company}</span>
                       <span aria-hidden="true" className="mx-2">
                         ·
