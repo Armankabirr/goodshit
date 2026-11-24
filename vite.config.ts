@@ -9,6 +9,17 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
+      {
+        name: 'jfif-mime-type',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (req.url && /\.jfif(\?.*)?$/i.test(req.url)) {
+              res.setHeader('Content-Type', 'image/jpeg');
+            }
+            next();
+          });
+        },
+      },
       // Copies src/assets into dist/ so root-relative URLs like
       // "/src/assets/images/..." (e.g. generate_image output) still resolve
       // in production builds. Do not remove.

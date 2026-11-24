@@ -24,6 +24,7 @@ import {
 import { soundEngine } from './utils/soundEngine';
 
 const HERO_VIDEO = '/assets/aistudio/Slow_Spinning_Portrait_ab8d73b3.mp4';
+const EXPERIENCE_BG = '/assets/aistudio/Gemini_Generated_Image_e7tf6qe7tf6qe7tf_b8f8aea4.jfif';
 
 export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -33,6 +34,7 @@ export default function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [heroVideoError, setHeroVideoError] = useState(false);
   const [heroImgError, setHeroImgError] = useState(false);
+  const [expBgError, setExpBgError] = useState(false);
 
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({
@@ -43,6 +45,15 @@ export default function App() {
   const heroBgY = useTransform(smoothHeroScroll, [0, 1], ['0%', '18%']);
   const heroBgScale = useTransform(smoothHeroScroll, [0, 1], [1.02, 1.12]);
   const heroBgOpacity = useTransform(smoothHeroScroll, [0, 1], [0.64, 0.15]);
+
+  const expRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: expScroll } = useScroll({
+    target: expRef,
+    offset: ['start end', 'end start'],
+  });
+  const smoothExpScroll = useSpring(expScroll, { stiffness: 110, damping: 24 });
+  const expBgY = useTransform(smoothExpScroll, [0, 1], ['-8%', '8%']);
+  const expBgScale = useTransform(smoothExpScroll, [0, 1], [1.08, 1.02]);
 
   const navigateTo = (id: string) => {
     const el = document.getElementById(id);
@@ -250,40 +261,68 @@ export default function App() {
         </section>
 
         {/* EXPERIENCE & HISTORY SECTION */}
-        <section id="experience" className="border-b border-[#b7ab98]/12">
-          <MaskRevealBlock
-            radius={220}
-            className="border-b border-[#b7ab98]/12"
-            baseContent={
-              <div className="py-24 md:py-32">
-                <div className="max-w-[1120px] mx-auto px-6 md:px-12">
-                  <div data-mask-text="true" className="w-fit max-w-5xl space-y-8">
-                    <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
-                      Experience
-                    </h2>
-                    <ScrollText
-                      text="My journey has been shaped by curiosity, collaboration, and the willingness to take on projects that push me beyond my comfort zone."
-                      className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
-                    />
+        <section id="experience" className="border-b border-[#b7ab98]/12 bg-[#0d0d0d]">
+          {/* Experience intro block with scoped background image */}
+          <div
+            ref={expRef}
+            className="relative min-h-[520px] md:min-h-[620px] flex items-center border-b border-[#b7ab98]/12 overflow-hidden bg-[#0d0d0d]"
+          >
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {!expBgError && (
+                <motion.img
+                  src={EXPERIENCE_BG}
+                  alt="Portrait in dark studio lighting"
+                  referrerPolicy="no-referrer"
+                  onError={() => setExpBgError(true)}
+                  style={{ y: expBgY, scale: expBgScale }}
+                  className="w-full h-full object-cover object-[78%_18%] md:object-right-top opacity-100 will-change-transform"
+                />
+              )}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/75 via-[#0d0d0d]/25 to-transparent"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/40 via-transparent to-[#0d0d0d]/50"
+              />
+            </div>
+
+            <div className="relative z-10 w-full">
+              <MaskRevealBlock
+                radius={220}
+                baseContent={
+                  <div className="py-24 md:py-36">
+                    <div className="max-w-[1120px] mx-auto px-6 md:px-12">
+                      <div data-mask-text="true" className="w-fit max-w-3xl space-y-8">
+                        <h2 className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/85">
+                          Experience
+                        </h2>
+                        <ScrollText
+                          text="My journey has been shaped by curiosity, collaboration, and the willingness to take on projects that push me beyond my comfort zone."
+                          className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            }
-            revealContent={
-              <div className="w-full h-full flex items-center py-24 md:py-32">
-                <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full">
-                  <div className="w-fit max-w-5xl space-y-8">
-                    <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
-                      Experience
-                    </p>
-                    <p className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#0d0d0d]">
-                      One day this section will list companies. Today, it tells the story of how I got there.
-                    </p>
+                }
+                revealContent={
+                  <div className="w-full h-full flex items-center py-24 md:py-36">
+                    <div className="max-w-[1120px] mx-auto px-6 md:px-12 w-full">
+                      <div className="w-fit max-w-3xl space-y-8">
+                        <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
+                          Experience
+                        </p>
+                        <p className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#0d0d0d]">
+                          One day this section will list companies. Today, it tells the story of how I got there.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            }
-          />
+                }
+              />
+            </div>
+          </div>
 
           {/* History Timeline */}
           <div className="max-w-[1120px] mx-auto px-6 md:px-12 py-16 md:py-24">
@@ -301,28 +340,43 @@ export default function App() {
                       setHoveredExpIdx(idx);
                       soundEngine.playTick(310);
                     }}
-                    onPointerLeave={() => setHoveredExpIdx(null)}
-                    className="py-7 md:py-9 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-baseline transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#141414]/65 px-2 -mx-2"
+                    onPointerLeave={() =>
+                      setHoveredExpIdx((prev) => (prev === idx ? null : prev))
+                    }
+                    className="py-7 md:py-9 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-center transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#141414]/65 px-3 -mx-3"
                   >
                     <div className="md:col-span-3 font-display text-2xl md:text-3xl font-bold font-mono-tabular text-[#b7ab98]">
                       {item.year}
                     </div>
-                    <div className="md:col-span-5 font-display text-xl md:text-3xl font-bold tracking-tight overflow-hidden">
-                      <AnimatePresence mode="wait" initial={false}>
-                        <motion.span
-                          key={showHonest ? 'honest' : 'formal'}
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                          className={`inline-block transition-colors duration-200 ${
-                            showHonest ? 'text-[#eb5939]' : 'text-[#b7ab98]'
-                          }`}
-                        >
-                          {showHonest ? item.honestRole : item.role}
-                        </motion.span>
-                      </AnimatePresence>
+
+                    {/* Layered grid keeps height stable across wraps with zero exit-wait flicker */}
+                    <div className="md:col-span-5 font-display text-xl md:text-2xl lg:text-[1.75rem] font-bold tracking-tight leading-snug grid overflow-hidden">
+                      <motion.span
+                        initial={false}
+                        animate={{
+                          opacity: showHonest ? 0 : 1,
+                          y: showHonest ? -10 : 0,
+                        }}
+                        transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+                        aria-hidden={showHonest}
+                        className="col-start-1 row-start-1 text-[#b7ab98] will-change-[transform,opacity]"
+                      >
+                        {item.role}
+                      </motion.span>
+                      <motion.span
+                        initial={false}
+                        animate={{
+                          opacity: showHonest ? 1 : 0,
+                          y: showHonest ? 0 : 10,
+                        }}
+                        transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+                        aria-hidden={!showHonest}
+                        className="col-start-1 row-start-1 text-[#eb5939] will-change-[transform,opacity]"
+                      >
+                        {item.honestRole}
+                      </motion.span>
                     </div>
+
                     <div className="md:col-span-4 text-sm text-[#b7ab98]/65 md:text-right">
                       <span>{item.company}</span>
                       <span aria-hidden="true" className="mx-2">
