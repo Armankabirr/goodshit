@@ -654,7 +654,7 @@ export default function App() {
           </div>
 
           <div className="pt-8 border-t border-[#b7ab98]/12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#b7ab98]/45">
-            <p>&copy; {new Date().getFullYear()} Minh Pham. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} AK. All rights reserved.</p>
             <p>CREATIVE BUILDING</p>
           </div>
         </div>
