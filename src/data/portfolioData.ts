@@ -48,7 +48,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     honestSummary: 'Designing and developing complete web applications that combine intuitive user experiences with scalable backend systems.',
     deliverables: 'Responsive Web Apps · REST APIs · Authentication · Admin Dashboards',
     tools: 'React · TypeScript · Node.js · Express · MongoDB · Supabase · Firebase',
-    image: '/src/assets/images/hero_sculpture_dark_1795158520374.jpg',
+    image: 'src/assets/images/campustrace.PNG',
     details:
       'From responsive user interfaces to secure backend services, I build end-to-end applications that solve real-world problems. My focus is on clean architecture, maintainable code, seamless user experiences, and scalable systems. Every project is an opportunity to turn an idea into a reliable product people enjoy using.',
   },
@@ -59,7 +59,7 @@ export const CAPABILITIES: CapabilityItem[] = [
       'Creating engaging desktop games and interactive experiences.',
     deliverables: 'Desktop Games · AI Opponents· Multiplayer Systems · Interactive UI ',
     tools: 'Java · JavaFX · OOP · Socket Programming · Scene Builder',
-    image: '/src/assets/images/work_ford_hmi_1795158519236.jpg',
+    image: 'src/assets/images/Spectra arena.jfif',
     details:
       'I enjoy exploring game mechanics and interactive software through object-oriented design. My work includes developing gameplay systems, AI-driven opponents, multiplayer features, and polished desktop experiences such as Spectra Arena.',
   },
@@ -70,7 +70,7 @@ export const CAPABILITIES: CapabilityItem[] = [
       'Building connected hardware and software solutions that automate everyday tasks through embedded systems, sensors, cloud connectivity, and real-time monitoring.',
     deliverables: 'Embedded Systems · Smart Automation · IoT Dashboards · Remote Monitoring',
     tools: 'Arduino · ESP32 · C++ · SIM800L · IR Sensors · Servo Motors · Firebase',
-    image: '/src/assets/images/work_ufc_ecosystem_1795158521161.jpg',
+    image: 'src/assets/images/medical.jfif',
     details:
       'I build IoT solutions that bridge the physical and digital worlds through sensors, automation, and web technologies. My experience includes smart healthcare systems like IoT MedConnect, combining embedded devices with cloud-connected applications.',
   },
@@ -81,7 +81,7 @@ export const CAPABILITIES: CapabilityItem[] = [
       'Exploring secure, scalable systems through research and simulation.',
     deliverables: 'Network Simulation · Security · Performance Analysis',
     tools: 'SUMO · ns-3 · Python',
-    image: '/src/assets/images/work_spatial_product_1795158520948.jpg',
+    image: 'src/assets/images/reserch.jpg',
     details:
       'I enjoy understanding how complex distributed systems work and researching ways to improve their stability, efficiency, and security. My research focuses on vehicular cloud networks and clustering techniques.',
   },
@@ -91,7 +91,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     honestSummary: 'Building practical tools that simplify everyday workflows and solve small but meaningful problems.',
     deliverables: 'Productivity Apps · Automation Tools · Student Utilities · Web Platforms',
     tools: 'React · TypeScript · Next.js · Firebase · AI APIs',
-    image: '/src/assets/images/hero_sculpture_dark_1795158520374.jpg',
+    image: 'src/assets/images/tools.PNG',
     details:
       'I enjoy creating lightweight tools that make everyday tasks faster and easier—not only for myself but for others as well. From course section planners and routine generators to CGPA calculators and student utilities, these projects are designed to save time, reduce frustration, and improve daily workflows.',
   },
@@ -136,7 +136,7 @@ export const CLIENTS: ClientProject[] = [
     year: '2026',
     role: 'Full-Stack Developer',
     scope: 'Lost & Found Platform · Smart Matching · Student Safety',
-    image: '/src/assets/images/work_ford_hmi_1795158519236.jpg',
+    image: 'src/assets/images/campustrace.PNG',
     caseOverview:
       'Designed and developed a secure lost-and-found platform for university students, combining intelligent report matching, cloud-based image storage, authentication, and real-time notifications to make recovering lost belongings faster and safer.',
     outcomes: [
@@ -152,7 +152,7 @@ export const CLIENTS: ClientProject[] = [
     year: '2026',
     role: 'Frontend Developer & UI/UX Designer',
     scope: 'Service Marketplace · Booking System · Team Collaboration',
-    image: '/src/assets/images/work_ufc_ecosystem_1795158521161.jpg',
+    image: 'src/assets/images/worksure.PNG',
     caseOverview:
       'Contributed to the frontend development of a full-stack service marketplace connecting users with verified professionals. Focused on building responsive interfaces, authentication flows, booking experiences, and dashboard components while collaborating in an agile development team.',
     outcomes: [
@@ -169,7 +169,7 @@ export const CLIENTS: ClientProject[] = [
     year: '2026',
     role: 'IoT & Embedded Systems Developer',
     scope: 'Smart Healthcare · IoT Monitoring · Embedded Systems',
-    image: '/src/assets/images/work_ford_hmi_1795158519236.jpg',
+    image: 'src/assets/images/medical.jfif',
     caseOverview:
       'Developed an award-winning IoT healthcare solution that improves medication adherence for elderly patients through automated dispensing, real-time monitoring, and emergency caregiver alerts. The system combines embedded hardware with cloud connectivity to deliver a safer and more reliable medication experience.',
     outcomes: [
@@ -186,7 +186,7 @@ export const CLIENTS: ClientProject[] = [
     year: '2025',
     role: 'Java Developer',
     scope: 'Game Development · JavaFX · Multiplayer Networking',
-    image: '/src/assets/images/work_spatial_product_1795158520948.jpg',
+    image: 'src/assets/images/Spectra arena.jfif',
     caseOverview:
       'Developed a JavaFX-based gaming platform featuring eight classic games within a single application. Built using object-oriented design principles, the platform includes secure user authentication, profile management, AI-powered gameplay, and real-time multiplayer functionality powered by socket programming.',
     outcomes: [
@@ -238,7 +238,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: '4 Consecutive Trimesters',
     company: 'United International University',
     initials: 'MS',
-    avatar: '/src/assets/images/avatar_michael_gough_1795159728875.jpg',
+    avatar: '/src/assets/images/marit.jpg',
     quote: 'Awarded merit scholarships for four consecutive trimesters, including three 50% scholarships and one 25% scholarship, for consistently ranking among the university’s top-performing students.',
     honestQuote: "My GPA survived every semester. Honestly, I'm still impressed.",
   },
@@ -248,7 +248,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: 'Microprocessors & Microcontrollers',
     company: 'UIU CSE Project Show',
     initials: '1R',
-    avatar: '/src/assets/images/avatar_peter_smart_1795159728848.jpg',
+    avatar: '/src/assets/images/1R.jpg',
     quote: 'IoT MedConnect received 1st Runner-Up for developing a smart healthcare solution that improves medication adherence for elderly patients.',
     honestQuote: "Built to solve a real problem—not just to earn a grade.",
   },
@@ -258,7 +258,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: 'Advanced Object-Oriented Programming',
     company: 'UIU CSE Project Show',
     initials: '5R',
-    avatar: '/src/assets/images/avatar_tuan_nguyen_1795159728382.jpg',
+    avatar: '/src/assets/images/2R.jpg',
     quote: 'Spectra Arena was recognized for combining object-oriented design, AI gameplay, and real-time multiplayer using socket programming.',
     honestQuote:
       'Eight games, countless bugs, and one unforgettable semester.',

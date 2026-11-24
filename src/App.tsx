@@ -23,8 +23,9 @@ import {
 } from './data/portfolioData';
 import { soundEngine } from './utils/soundEngine';
 
-const HERO_VIDEO = '/assets/aistudio/Slow_Spinning_Portrait_ab8d73b3.mp4';
+const HERO_VIDEO = '/assets/aistudio/Slow_spinning_portrait__3__89fb387e.mp4';
 const EXPERIENCE_BG = '/assets/aistudio/Gemini_Generated_Image_e7tf6qe7tf6qe7tf_b8f8aea4.jfif';
+const MOTTO_BG = '/assets/aistudio/Gemini_Generated_Image_jq7xr0jq7xr0jq7x__1__251d5cff.jfif';
 
 export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
   const [heroVideoError, setHeroVideoError] = useState(false);
   const [heroImgError, setHeroImgError] = useState(false);
   const [expBgError, setExpBgError] = useState(false);
+  const [mottoBgError, setMottoBgError] = useState(false);
 
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({
@@ -54,6 +56,15 @@ export default function App() {
   const smoothExpScroll = useSpring(expScroll, { stiffness: 110, damping: 24 });
   const expBgY = useTransform(smoothExpScroll, [0, 1], ['-8%', '8%']);
   const expBgScale = useTransform(smoothExpScroll, [0, 1], [1.08, 1.02]);
+
+  const mottoRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: mottoScroll } = useScroll({
+    target: mottoRef,
+    offset: ['start end', 'end start'],
+  });
+  const smoothMottoScroll = useSpring(mottoScroll, { stiffness: 110, damping: 24 });
+  const mottoBgY = useTransform(smoothMottoScroll, [0, 1], ['-8%', '8%']);
+  const mottoBgScale = useTransform(smoothMottoScroll, [0, 1], [1.08, 1.02]);
 
   const navigateTo = (id: string) => {
     const el = document.getElementById(id);
@@ -498,43 +509,65 @@ export default function App() {
         <TestimonialsSection />
 
         {/* MY MOTTO SECTION */}
-        <section className="relative border-b border-[#b7ab98]/12 overflow-hidden">
-          <MaskRevealBlock
-            radius={220}
-            baseContent={
-              <div className="py-28 md:py-44">
-                <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
-                  <div
-                    data-mask-text="true"
-                    className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4"
-                  >
-                    <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/60">
-                      My Motto
-                    </p>
-                    <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#b7ab98]">
-                      Good Design Is Honest
-                    </p>
-                    <p className="text-sm text-[#b7ab98]/60">Dieter Rams</p>
+        <section
+          ref={mottoRef}
+          className="relative border-b border-[#b7ab98]/12 overflow-hidden bg-[#0d0d0d]"
+        >
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {!mottoBgError && (
+              <motion.img
+                src={MOTTO_BG}
+                alt="Side profile portrait in studio lighting"
+                referrerPolicy="no-referrer"
+                onError={() => setMottoBgError(true)}
+                style={{ y: mottoBgY, scale: mottoBgScale }}
+                className="w-full h-full object-cover object-[50%_22%] opacity-80 will-change-transform"
+              />
+            )}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-b from-[#0d0d0d]/55 via-[#0d0d0d]/35 to-[#0d0d0d]/65"
+            />
+          </div>
+
+          <div className="relative z-10">
+            <MaskRevealBlock
+              radius={220}
+              baseContent={
+                <div className="py-28 md:py-44">
+                  <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
+                    <div
+                      data-mask-text="true"
+                      className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4"
+                    >
+                      <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#b7ab98]/80">
+                        My Motto
+                      </p>
+                      <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#b7ab98]">
+                        Good Design Is Honest
+                      </p>
+                      <p className="text-sm text-[#b7ab98]/75">Dieter Rams</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            }
-            revealContent={
-              <div className="w-full h-full flex items-center justify-center py-28 md:py-44">
-                <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
-                  <div className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4">
-                    <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
-                      My Motto
-                    </p>
-                    <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#0d0d0d]">
-                      Not All Honest Design Is Good
-                    </p>
-                    <p className="text-sm font-semibold text-[#0d0d0d]/80">Minh Pham</p>
+              }
+              revealContent={
+                <div className="w-full h-full flex items-center justify-center py-28 md:py-44">
+                  <div className="max-w-[1120px] mx-auto px-6 md:px-12 text-center">
+                    <div className="inline-block max-w-4xl mx-auto space-y-6 py-2 px-4">
+                      <p className="text-xs uppercase tracking-[0.24em] font-semibold text-[#0d0d0d]/70">
+                        My Motto
+                      </p>
+                      <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#0d0d0d]">
+                        Not All Honest Design Is Good
+                      </p>
+                      <p className="text-sm font-semibold text-[#0d0d0d]/80">Minh Pham</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            }
-          />
+              }
+            />
+          </div>
         </section>
       </main>
 
