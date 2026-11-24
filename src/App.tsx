@@ -311,6 +311,7 @@ export default function App() {
                         </h2>
                         <ScrollText
                           text="My journey has been shaped by curiosity, collaboration, and the willingness to take on projects that push me beyond my comfort zone."
+                          highlightPrefix="My journey"
                           className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.025em] leading-[1.08] text-[#b7ab98]"
                         />
                       </div>
