@@ -137,14 +137,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {/* Footer action */}
             <div className="px-6 py-4 border-t border-[#b7ab98]/12 flex items-center justify-between bg-[#0d0d0d]">
               <span className="text-xs text-[#b7ab98]/55">Selected Client Archive</span>
-              <button
-                type="button"
-                onClick={onClose}
-                className="inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-semibold uppercase tracking-[0.12em] bg-[#eb5939] text-[#0d0d0d] hover:bg-[#f06b4d] transition-colors duration-200"
-              >
-                <span>Back to Portfolio</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-semibold uppercase tracking-[0.12em] bg-[#eb5939] text-[#0d0d0d] hover:bg-[#f06b4d] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
+                >
+                  <span>View Live</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[40px] text-xs font-semibold uppercase tracking-[0.12em] bg-[#eb5939] text-[#0d0d0d] hover:bg-[#f06b4d] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
+                >
+                  <span>Back to Portfolio</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              )}
             </div>
           </motion.div>
         </motion.div>

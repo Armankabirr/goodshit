@@ -62,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <a
             href="#hero"
             onClick={(e) => handleAnchor(e, 'hero')}
-            aria-label="Minh Pham — Back to top"
+            aria-label="Arman Kabir — Back to top"
             className="pointer-events-auto group inline-flex items-center justify-center w-10 h-10 text-[#b7ab98] hover:text-[#eb5939] transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#eb5939]"
           >
             <svg
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="opacity-85"
               />
               <path
-                d="M11 23V13L15.5 19L20 13V23M22.5 23V13H25.5C27 13 28 14 28 15.5C28 17 27 18 25.5 18H22.5"
+                d="M9.5 23L13.5 13L17.5 23M11.1 19.2H15.9M20 13V23M26 13L20 18L26.2 23"
                 stroke="currentColor"
                 strokeWidth="1.6"
                 strokeLinecap="round"
@@ -129,24 +129,32 @@ export const Navbar: React.FC<NavbarProps> = ({
         aria-label="Social links"
         className="fixed bottom-9 left-12 z-40 hidden md:flex flex-col items-center gap-5"
       >
-        {/* Dribbble */}
+        {/* GitHub */}
         <a
-          href="https://dribbble.com"
+          href="https://github.com/Armankabirr"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label="Dribbble"
+          aria-label="GitHub"
           onPointerEnter={() => soundEngine.playTick(340)}
           className="text-[#b7ab98]/55 hover:text-[#eb5939] hover:-translate-y-0.5 transition-all duration-200 p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#eb5939]"
         >
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-            <circle cx="12" cy="12" r="9.5" />
-            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+          <svg
+            className="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+            <path d="M9 18c-4.51 2-5-2-7-2" />
           </svg>
         </a>
 
         {/* Instagram */}
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/armankabiir"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Instagram"
@@ -177,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/armankabiir"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="LinkedIn"

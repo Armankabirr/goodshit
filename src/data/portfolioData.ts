@@ -24,6 +24,7 @@ export interface ClientProject {
   role: string;
   scope: string;
   image: string;
+  liveUrl?: string;
   caseOverview: string;
   outcomes: string[];
 }
@@ -137,6 +138,7 @@ export const CLIENTS: ClientProject[] = [
     role: 'Full-Stack Developer',
     scope: 'Lost & Found Platform · Smart Matching · Student Safety',
     image: 'src/assets/images/campustrace.PNG',
+    liveUrl: 'https://campus-trace-nine.vercel.app/',
     caseOverview:
       'Designed and developed a secure lost-and-found platform for university students, combining intelligent report matching, cloud-based image storage, authentication, and real-time notifications to make recovering lost belongings faster and safer.',
     outcomes: [
@@ -153,6 +155,7 @@ export const CLIENTS: ClientProject[] = [
     role: 'Frontend Developer & UI/UX Designer',
     scope: 'Service Marketplace · Booking System · Team Collaboration',
     image: 'src/assets/images/worksure.PNG',
+    liveUrl: 'https://worksure-bd.web.app/',
     caseOverview:
       'Contributed to the frontend development of a full-stack service marketplace connecting users with verified professionals. Focused on building responsive interfaces, authentication flows, booking experiences, and dashboard components while collaborating in an agile development team.',
     outcomes: [
@@ -170,6 +173,7 @@ export const CLIENTS: ClientProject[] = [
     role: 'IoT & Embedded Systems Developer',
     scope: 'Smart Healthcare · IoT Monitoring · Embedded Systems',
     image: 'src/assets/images/medical.jfif',
+    liveUrl: 'https://github.com/Armankabirr/IoT-MedConnect-Smart-Dispenser',
     caseOverview:
       'Developed an award-winning IoT healthcare solution that improves medication adherence for elderly patients through automated dispensing, real-time monitoring, and emergency caregiver alerts. The system combines embedded hardware with cloud connectivity to deliver a safer and more reliable medication experience.',
     outcomes: [
@@ -187,6 +191,7 @@ export const CLIENTS: ClientProject[] = [
     role: 'Java Developer',
     scope: 'Game Development · JavaFX · Multiplayer Networking',
     image: 'src/assets/images/Spectra arena.jfif',
+    liveUrl: 'https://github.com/Armankabirr/SPECTRA_ARENA-master',
     caseOverview:
       'Developed a JavaFX-based gaming platform featuring eight classic games within a single application. Built using object-oriented design principles, the platform includes secure user authentication, profile management, AI-powered gameplay, and real-time multiplayer functionality powered by socket programming.',
     outcomes: [

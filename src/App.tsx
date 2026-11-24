@@ -79,7 +79,7 @@ export default function App() {
   };
 
   const handleCopyEmail = async () => {
-    const email = 'minhpham.design@gmail.com';
+    const email = 'armanutsho12@gmail.com';
     try {
       await navigator.clipboard.writeText(email);
       setCopiedEmail(true);
@@ -544,9 +544,9 @@ export default function App() {
                         My Motto
                       </p>
                       <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#b7ab98]">
-                        Good Design Is Honest
+                        Stay hungry. Stay foolish.
                       </p>
-                      <p className="text-sm text-[#b7ab98]/75">Dieter Rams</p>
+                      <p className="text-sm text-[#b7ab98]/75">Steve Jobs</p>
                     </div>
                   </div>
                 </div>
@@ -559,9 +559,9 @@ export default function App() {
                         My Motto
                       </p>
                       <p className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase tracking-[-0.03em] leading-[0.94] text-[#0d0d0d]">
-                        Not All Honest Design Is Good
+                        Still hungry. Still figuring things out.
                       </p>
-                      <p className="text-sm font-semibold text-[#0d0d0d]/80">Minh Pham</p>
+                      <p className="text-sm font-semibold text-[#0d0d0d]/80">Arman Kabir</p>
                     </div>
                   </div>
                 </div>
@@ -580,7 +580,7 @@ export default function App() {
                 Connect
               </h2>
               <p className="font-display text-2xl md:text-3xl font-bold text-[#b7ab98] max-w-sm leading-snug">
-                Available for select product leadership &amp; visual craft engagements.
+                Open to opportunities, collaborations, and interesting ideas worth building.
               </p>
             </div>
 
@@ -590,10 +590,10 @@ export default function App() {
               </h3>
               <ul className="space-y-2">
                 {[
-                  { label: 'Dribbble', href: 'https://dribbble.com' },
-                  { label: 'YouTube', href: 'https://youtube.com' },
-                  { label: 'Instagram', href: 'https://instagram.com' },
-                  { label: 'LinkedIn', href: 'https://linkedin.com' },
+                  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/armankabiir' },
+                  { label: 'Github', href: 'https://github.com/Armankabirr' },
+                  { label: 'Instagram', href: 'https://www.instagram.com/armankabiir' },
+                  { label: 'twitter', href: 'https://twitter.com' },
                 ].map((link) => (
                   <li key={link.label}>
                     <a
@@ -621,7 +621,7 @@ export default function App() {
                   onClick={handleCopyEmail}
                   className="inline-flex items-center gap-2.5 text-left text-sm md:text-base font-medium text-[#b7ab98] hover:text-[#eb5939] transition-colors duration-200 min-h-[44px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#eb5939]"
                 >
-                  <span>minhpham.design@gmail.com</span>
+                  <span>armanutsho12@gmail.com</span>
                   {copiedEmail ? (
                     <Check className="w-4 h-4 text-[#eb5939] shrink-0" />
                   ) : (
@@ -647,14 +647,14 @@ export default function App() {
                 <h3 className="text-xs uppercase tracking-[0.18em] text-[#b7ab98]/45 mb-2">
                   Base
                 </h3>
-                <p className="text-sm text-[#b7ab98]/80">Ho Chi Minh City, Vietnam</p>
+                <p className="text-sm text-[#b7ab98]/80">Dhaka, Bangladesh</p>
               </div>
             </div>
           </div>
 
           <div className="pt-8 border-t border-[#b7ab98]/12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#b7ab98]/45">
             <p>&copy; {new Date().getFullYear()} Minh Pham. All rights reserved.</p>
-            <p>Product · Visual · Motion · 3D</p>
+            <p>CREATIVE BUILDING</p>
           </div>
         </div>
       </footer>
